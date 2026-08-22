@@ -5,7 +5,13 @@ This package provides access to the Nord color palette, an arctic, north-bluish 
 ## Installation
 
 ```bash
-composer require phpcolor/nord-colors
+composer require phpcolor/nord-colors:^2.0
+```
+
+The package works standalone. Install `phpcolor/phpcolor` only when using `palette()`:
+
+```bash
+composer require phpcolor/phpcolor
 ```
 
 ## Usage
@@ -44,6 +50,20 @@ echo $colors->get('nord8');       // #88C0D0
 // Or use the id() method
 echo $colors->id(10);             // #5E81AC
 ```
+
+### PHPColor Palette
+
+```php
+use PhpColor\Color\Palette\ColorPaletteInterface;
+use PhpColor\Colors\Nord\NordColors as Nord;
+
+$palette = Nord::colors()->palette();
+assert($palette instanceof ColorPaletteInterface);
+
+echo $palette->get('nord10')->toHex(); // #5e81ac
+```
+
+Calling `palette()` without `phpcolor/phpcolor` installed throws a `LogicException` with the installation command.
 
 ## Credits
 

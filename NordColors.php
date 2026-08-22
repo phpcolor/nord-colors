@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace PhpColor\Colors\Nord;
 
+use PhpColor\Color\Palette\ColorPalette;
+use PhpColor\Color\Palette\ColorPaletteInterface;
+
 /**
  * @implements \IteratorAggregate<string, string>
  */
@@ -45,6 +48,15 @@ final class NordColors extends \stdClass implements \IteratorAggregate, \Countab
         }
 
         return $this->colors[$name][0];
+    }
+
+    public function palette(): ColorPaletteInterface
+    {
+        if (!class_exists(ColorPalette::class)) {
+            throw new \LogicException('The palette() method requires phpcolor/phpcolor. Install it with "composer require phpcolor/phpcolor".');
+        }
+
+        return ColorPalette::parse(array_map(static fn (array $color): string => $color[0], $this->colors));
     }
 
     /**

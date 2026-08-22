@@ -24,6 +24,9 @@
     "require": {
         "php": ">=8.3"
     },
+    "suggest": {
+        "phpcolor/phpcolor": "Provides ColorPaletteInterface objects through palette()."
+    },
     "autoload": {
         "psr-4": { "PhpColor\\Colors\\Nord\\": "" }
     },
