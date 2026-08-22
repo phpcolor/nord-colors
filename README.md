@@ -5,7 +5,7 @@ This package provides access to the Nord color palette, an arctic, north-bluish 
 ## Installation
 
 ```bash
-composer require phpcolor/nord-colors:^2.0
+composer require phpcolor/nord-colors:^1.0
 ```
 
 The package works standalone. Install `phpcolor/phpcolor` only when using `palette()`:
